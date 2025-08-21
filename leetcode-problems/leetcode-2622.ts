@@ -81,7 +81,7 @@ set(key: number, value: number, duration: number): boolean {
 get(key: number): number {
     const now = Date.now();
     const item = this.cache.get(key);
-    const expiresAt = item?.duration;
+    const expiresAt = item?.duration || 0;
 
     if (item && expiresAt > now) {
         return item.value
